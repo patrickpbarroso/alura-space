@@ -275,6 +275,11 @@ table {
     margin-right: 1.5rem;
 }
 
+.icon__menu {
+    width: 32px;
+    height: 32px
+}
+
 .pagina-inicial {
     max-width: 1440px;
     padding: 1.5rem;
