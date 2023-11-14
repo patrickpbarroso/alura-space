@@ -41,15 +41,15 @@ class CadastroForms(forms.Form):
     email=forms.EmailField(
         label="Email",
         required=True,
-        max_length=100,
-        widget=forms.TextInput(
+        max_length=200,
+        widget=forms.EmailInput(
             attrs={
                 "class":"form-control",
                 "placeholder":"Ex.: ana.santos@email.com"
             }
         )
     )
-    senha=forms.CharField(
+    senha_1=forms.CharField(
         label="Senha",
         required=True,
         max_length=100,
@@ -60,7 +60,7 @@ class CadastroForms(forms.Form):
             }
         )
     )
-    senha2=forms.CharField(
+    senha_2=forms.CharField(
         label="Confirmação de Senha",
         required=True,
         max_length=100,
