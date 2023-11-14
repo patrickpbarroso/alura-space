@@ -16,12 +16,12 @@
                     </ul>
                 </section>
                 <section class="galeria">
-                    <div class="cards">
+                    <div class="cards__app">
                         <h2 class="cards__titulo">Navegue pela galeria</h2>
                         <ul class="cards__lista">
                             {% if cards %}
                             {% for fotografia in cards %}
-                            <li class="card">
+                            <li class="card__app">
                                 <a href="{% url 'imagem' fotografia.id %}">
                                     {% if fotografia.foto == '' or fotografia.foto == null %}
                                     <img class="card__imagem" src="{% static '/assets/imagens/galeria/not-found.jpg'%}" alt="foto">
