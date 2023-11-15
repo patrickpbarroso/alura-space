@@ -5,6 +5,8 @@ from django.contrib import auth, messages
 
 def login(request):
     # View para realizar login de usuário existente na aplicação
+    if request.user.is_authenticated:
+        return redirect('index')
     form = LoginForms()
 
     if request.method == 'POST':
@@ -37,26 +39,26 @@ def cadastro(request):
         form = CadastroForms(request.POST)
 
         if form.is_valid():
-            if form["senha_1"].value() != form["senha_2"].value():
-                messages.error(request, 'Senhas não são iguais. Tente novamente')
+            nome_de_usuario = form["nome_cadastro"].value()
+            primeiro_nome = form["primeiro_nome"].value()
+            sobrenome = form["sobrenome"].value()
+            email = form["email"].value()
+            senha = form["senha_1"].value()
+
+            if User.objects.filter(username=nome_de_usuario).exists():
+                messages.error(request, 'Usuário já existe.')
                 return redirect('cadastro')
-        
-        nome = form["nome_cadastro"].value()
-        email = form["email"].value()
-        senha = form["senha_1"].value()
 
-        if User.objects.filter(username=nome).exists():
-            messages.error(request, 'Usuário já existe.')
-            return redirect('cadastro')
-
-        usuario = User.objects.create_user(
-            username=nome,
-            email=email,
-            password=senha
-        )
-        usuario.save()
-        messages.success(request, 'Cadastro efetuado com sucesso')
-        return redirect('login')
+            usuario = User.objects.create_user(
+                username=nome_de_usuario,
+                first_name=primeiro_nome,
+                last_name=sobrenome,
+                email=email,
+                password=senha
+            )
+            usuario.save()
+            messages.success(request, 'Cadastro efetuado com sucesso')
+            return redirect('login')
     
     return render(request, 'usuarios/cadastro.html', {"form": form})
 
