@@ -20,6 +20,7 @@
                 <a href="#"><img src="{% static '/assets/ícones/1x/Novas - inativo.png' %}"> Novas</a>
                 <a href="#"><img src="{% static '/assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Surpreenda-me</a>
                 {% if user.is_authenticated %}
+                    <a href="{% url 'nova_imagem' %}" class="icon__menu"><img src="{% static '/assets/ícones/1x/Add.png' %}" class="icon__menu">Nova imagem</a>
                     <a href="{% url 'logout' %}" class="icon__menu"><img src="{% static '/assets/ícones/1x/Logout.png' %}" class="icon__menu">Logout</a>
                 {% else %}
                     <a href="{% url 'login' %}"><img src="{% static '/assets/ícones/1x/Login.png' %}" class="icon__menu">Login</a>
