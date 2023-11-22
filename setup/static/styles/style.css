@@ -376,10 +376,9 @@ table {
 
 .tags__tag {
     background-color: #D9D9D930;
-    margin-right: 1.5rem;
+    margin-right: 1rem;
     border-radius: 8px;
-    padding: .8rem .5rem;
-    width: 100px;
+    padding: .8rem;
     text-align: center;
     border: 2px solid transparent;
 }
