@@ -1,13 +1,13 @@
 {% load static %}
 <div class="pagina-inicial">
     <header class="cabecalho">
-        <img src="{% static '/assets/logo/Logo(2).png' %}" alt="Logo da Alura Space" />
+        <img src="{% static 'assets/logo/Logo(2).png' %}" alt="Logo da Alura Space" />
         {% include 'partials/_alertas.html' %}
         <div class="cabecalho__busca">
             <form action="{% url 'buscar' %}" class="busca__fundo">
                 <input class="busca__input" type="text" name="buscar" placeholder="O que você procura?">
                 <button type="submit">
-                    <img class="busca__icone" src="{% static '/assets/ícones/1x/search.png' %}" alt="ícone de search">
+                    <img class="busca__icone" src="{% static 'assets/ícones/1x/search.png' %}" alt="ícone de search">
                 </button>
             </form>
         </div>
@@ -15,15 +15,15 @@
     <main class="principal">
         <section class="menu-lateral">
             <nav class="menu-lateral__navegacao">
-                <a href="{% url 'index' %}"><img src="{% static '/assets/ícones/1x/Home - ativo.png' %}"> Home</a>
-                <a href="#"><img src="{% static '/assets/ícones/1x/Mais vistas - inativo.png' %}"> Mais vistas</a>
-                <a href="#"><img src="{% static '/assets/ícones/1x/Novas - inativo.png' %}"> Novas</a>
-                <a href="#"><img src="{% static '/assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Surpreenda-me</a>
+                <a href="{% url 'index' %}"><img src="{% static 'assets/ícones/1x/Home - ativo.png' %}"> Home</a>
+                <a href="#"><img src="{% static 'assets/ícones/1x/Mais vistas - inativo.png' %}"> Mais vistas</a>
+                <a href="#"><img src="{% static 'assets/ícones/1x/Novas - inativo.png' %}"> Novas</a>
+                <a href="#"><img src="{% static 'assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Surpreenda-me</a>
                 {% if user.is_authenticated %}
-                    <a href="{% url 'nova_imagem' %}" class="icon__menu"><img src="{% static '/assets/ícones/1x/Add.png' %}" class="icon__menu">Nova imagem</a>
-                    <a href="{% url 'logout' %}" class="icon__menu"><img src="{% static '/assets/ícones/1x/Logout.png' %}" class="icon__menu">Logout</a>
+                    <a href="{% url 'nova_imagem' %}" class="icon__menu"><img src="{% static 'assets/ícones/1x/Add.png' %}" class="icon__menu">Nova imagem</a>
+                    <a href="{% url 'logout' %}" class="icon__menu"><img src="{% static 'assets/ícones/1x/Logout.png' %}" class="icon__menu">Logout</a>
                 {% else %}
-                    <a href="{% url 'login' %}"><img src="{% static '/assets/ícones/1x/Login.png' %}" class="icon__menu">Login</a>
+                    <a href="{% url 'login' %}"><img src="{% static 'assets/ícones/1x/Login.png' %}" class="icon__menu">Login</a>
                 {% endif %}
                 
             </nav>
