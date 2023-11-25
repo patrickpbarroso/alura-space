@@ -3,16 +3,20 @@
 {% block content %}
             <section class="conteudo">
                 <section class="banner">
-                    <img class="banner__imagem" src="{% static 'assets/imagens/Banner(2).png'%}" alt="banner Alura Space">
-                    <h1 class="banner__titulo"> A galeria mais completa de fotos do espaço!</h1>
+                    <img class="banner__imagem" src="{% static 'assets/imagens/Banner.png'%}" alt="banner Alura Space">
+                    <h1 class="banner__titulo"> A galeria mais completa de fotos da vida selvagem!</h1>
                 </section>
                 <section class="tags">
-                    <p class="tags__titulo">Busque por tags:</p>
+                    <p class="tags__titulo">Filtros:</p>
                     <ul class="tags__lista">
-                        <li class="tags__tag"><a href="{% url 'filtro' 'NEBULOSA' %}" class="btn" style="color: #C9C9C9">Nebulosa</a></li>
-                        <li class="tags__tag"><a href="{% url 'filtro' 'ESTRELA' %}" class="btn" style="color: #C9C9C9">Estrela</a></li>
-                        <li class="tags__tag"><a href="{% url 'filtro' 'GALÁXIA' %}" class="btn" style="color: #C9C9C9">Galáxia</a></li>
-                        <li class="tags__tag"><a href="{% url 'filtro' 'PLANETA' %}" class="btn" style="color: #C9C9C9">Planeta</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'MAMÍFERO' %}" class="btn" style="color: #FFFFFF; font-size: 20px;">Mamífero</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'AVE' %}" class="btn" style="color: #FFFFFF; font-size: 20px;">Ave</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'RÉPTIL' %}" class="btn" style="color: #FFFFFF; font-size: 20px;">Réptil</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'INSETO' %}" class="btn" style="color: #FFFFFF; font-size: 20px;">Inseto/Aracnídeo</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'ANFÍBIO' %}" class="btn" style="color: #FFFFFF; font-size: 20px;">Anfíbio</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'PEIXES' %}" class="btn" style="color: #FFFFFF; font-size: 20px;">Peixes</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'ANFÍBIO' %}" class="btn" style="color: #FFFFFF; font-size: 20px;">Crustáceo</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'ANFÍBIO' %}" class="btn" style="color: #FFFFFF; font-size: 20px;">Outros</a></li>
                     </ul>
                 </section>
                 <section class="galeria">

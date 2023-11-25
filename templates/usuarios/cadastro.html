@@ -2,12 +2,14 @@
 {% load static %}
 {% block content %}
             <section class="galeria" style="margin-left: 5em">
+                
                 <form action="{% url 'cadastro' %}" method="POST">
+                    <h1 class="basic__titulo">Cadastro</h1>
                     {% csrf_token %}
                     <div class="row">
                         {% for field in form.visible_fields %}
                         <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
-                            <label for="{{ field.id_for_label }}" style="color:#D9D9D9; margin-bottom: 5px;">{{field.label}}</label>
+                            <label for="{{ field.id_for_label }}" style="color:#004225; margin-bottom: 5px;">{{field.label}}</label>
                             {{ field }}
                         </div>
                         {% for error in field.errors %}
@@ -17,7 +19,7 @@
                         {% endfor %}
                         {% endfor %}
                     </div>
-                    <p style="color:#D9D9D9; margin-bottom: 5px;">Já possui uma conta? <a href="{% url 'login' %}">Faça login</a></p>
+                    <p style="color:#004225; font-weight: bold; margin-bottom: 5px;">Já possui uma conta? <a href="{% url 'login' %}">Faça login</a></p>
                     <div>
                         <button type="submit" class="btn btn-success col-12" style="padding: top 5px;">Cadastrar</button>
                     </div>

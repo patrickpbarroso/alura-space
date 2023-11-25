@@ -5,10 +5,14 @@ from django.contrib.auth.models import User
 class Fotografia(models.Model):
 
     OPCOES_DE_CATEGORIA = [
-        ('NEBULOSA', 'Nebulosa'),
-        ('ESTRELA', 'Estrela'),
-        ('GALÁXIA', 'Galáxia'),
-        ('PLANETA', 'Planeta')
+        ('MAMÍFERO', 'Mamífero'),
+        ('AVE', 'Ave'),
+        ('RÉPTIL', 'Réptil'),
+        ('INSETO/ARACNÍDEO', 'Inseto/Aracnídeo'),
+        ('ANFÍBIO', 'Anfíbio'),
+        ('PEIXES', 'Peixes'),
+        ('CRUSTÁCEO', 'Crustáceo'),
+        ('OUTROS', 'Outros')
         ]
 
     nome = models.CharField(max_length=100, null=False, blank=False)

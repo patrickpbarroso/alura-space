@@ -1,13 +1,13 @@
 {% load static %}
 <div class="pagina-inicial">
     <header class="cabecalho">
-        <img src="{% static 'assets/logo/Logo(2).png' %}" alt="Logo da Alura Space" />
+        <img src="{% static 'assets/logo/Logo.png' %}" alt="Logo da Alura Space" />
         {% include 'partials/_alertas.html' %}
         <div class="cabecalho__busca">
             <form action="{% url 'buscar' %}" class="busca__fundo">
                 <input class="busca__input" type="text" name="buscar" placeholder="O que você procura?">
-                <button type="submit">
-                    <img class="busca__icone" src="{% static 'assets/ícones/1x/search.png' %}" alt="ícone de search">
+                <button type="submit" class="busca__icone">
+                    <img  src="{% static 'assets/ícones/1x/search.png' %}" alt="ícone de search">
                 </button>
             </form>
         </div>
@@ -15,19 +15,26 @@
     <main class="principal">
         <section class="menu-lateral">
             <nav class="menu-lateral__navegacao">
-                {% if where == 'index' %}
-                    <a href="{% url 'index' %}" class="menu__ativo"><img src="{% static 'assets/ícones/1x/Home - ativo.png' %}"> Home</a>
-                {% else %}
-                    <a href="{% url 'index' %}"><img src="{% static 'assets/ícones/1x/Home - inativo.png' %}"> Home</a>
-                {% endif %}
-
-                {% if where == 'surpreenda' %}
-                    <a href="{% url 'surpreenda' %}" class="menu__ativo"><img src="{% static 'assets/ícones/1x/Surpreenda-me - ativo.png' %}"> Surpreenda-me</a>
-                {% else %}
-                    <a href="{% url 'surpreenda' %}"><img src="{% static 'assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Surpreenda-me</a>
-                {% endif %}
-
                 {% if user.is_authenticated %}
+                    
+                    {% if where == 'index' %}
+                        <a href="{% url 'index' %}" class="menu__ativo"><img src="{% static 'assets/ícones/1x/Home - ativo.png' %}" class="icon__menu"> Home</a>
+                    {% else %}
+                        <a href="{% url 'index' %}"><img src="{% static 'assets/ícones/1x/Home - inativo.png' %}" class="icon__menu"> Home</a>
+                    {% endif %}
+
+                    {% if where == 'surpreenda' %}
+                        <a href="{% url 'surpreenda' %}" class="menu__ativo"><img src="{% static 'assets/ícones/1x/Surpreenda-me - ativo.png' %}" class="icon__menu"> Surpreenda-me</a>
+                    {% else %}
+                        <a href="{% url 'surpreenda' %}"><img src="{% static 'assets/ícones/1x/Surpreenda-me - inativo.png' %}" class="icon__menu"> Surpreenda-me</a>
+                    {% endif %}
+
+                    {% if where == 'surpreenda' %}
+                        <a href="#" class="menu__ativo"><img src="{% static 'assets/ícones/1x/like.png' %}" class="icon__menu">Favoritos</a>
+                    {% else %}
+                        <a href="#"><img src="{% static 'assets/ícones/1x/like.png' %}" class="icon__menu"> Favoritos</a>
+                    {% endif %}
+
                     {% if where == 'nova-imagem' %}
                         <a href="{% url 'nova_imagem' %}" class="menu__ativo"><img src="{% static 'assets/ícones/1x/Add.png' %}" class="icon__menu">Nova imagem</a>
                     {% else %}
@@ -35,11 +42,6 @@
                     {% endif %}
                     <a href="{% url 'logout' %}" class="icon__menu"><img src="{% static 'assets/ícones/1x/Logout.png' %}" class="icon__menu">Logout</a>
                 {% else %}
-                    {% if where == 'login' %}
-                        <a href="{% url 'login' %}" class="menu__ativo"><img src="{% static 'assets/ícones/1x/Login.png' %}" class="icon__menu">Login</a>
-                    {% else %}
-                        <a href="{% url 'login' %}"><img src="{% static 'assets/ícones/1x/Login.png' %}" class="icon__menu">Login</a>
-                    {% endif %}
                 {% endif %}
                 
             </nav>
