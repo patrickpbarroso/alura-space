@@ -15,15 +15,31 @@
     <main class="principal">
         <section class="menu-lateral">
             <nav class="menu-lateral__navegacao">
-                <a href="{% url 'index' %}"><img src="{% static 'assets/ícones/1x/Home - ativo.png' %}"> Home</a>
-                <a href="#"><img src="{% static 'assets/ícones/1x/Mais vistas - inativo.png' %}"> Mais vistas</a>
-                <a href="#"><img src="{% static 'assets/ícones/1x/Novas - inativo.png' %}"> Novas</a>
-                <a href="#"><img src="{% static 'assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Surpreenda-me</a>
+                {% if where == 'index' %}
+                    <a href="{% url 'index' %}" class="menu__ativo"><img src="{% static 'assets/ícones/1x/Home - ativo.png' %}"> Home</a>
+                {% else %}
+                    <a href="{% url 'index' %}"><img src="{% static 'assets/ícones/1x/Home - inativo.png' %}"> Home</a>
+                {% endif %}
+
+                {% if where == 'surpreenda' %}
+                    <a href="{% url 'surpreenda' %}" class="menu__ativo"><img src="{% static 'assets/ícones/1x/Surpreenda-me - ativo.png' %}"> Surpreenda-me</a>
+                {% else %}
+                    <a href="{% url 'surpreenda' %}"><img src="{% static 'assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Surpreenda-me</a>
+                {% endif %}
+
                 {% if user.is_authenticated %}
-                    <a href="{% url 'nova_imagem' %}" class="icon__menu"><img src="{% static 'assets/ícones/1x/Add.png' %}" class="icon__menu">Nova imagem</a>
+                    {% if where == 'nova-imagem' %}
+                        <a href="{% url 'nova_imagem' %}" class="menu__ativo"><img src="{% static 'assets/ícones/1x/Add.png' %}" class="icon__menu">Nova imagem</a>
+                    {% else %}
+                        <a href="{% url 'nova_imagem' %}"><img src="{% static 'assets/ícones/1x/Add.png' %}" class="icon__menu">Nova imagem</a>
+                    {% endif %}
                     <a href="{% url 'logout' %}" class="icon__menu"><img src="{% static 'assets/ícones/1x/Logout.png' %}" class="icon__menu">Logout</a>
                 {% else %}
-                    <a href="{% url 'login' %}"><img src="{% static 'assets/ícones/1x/Login.png' %}" class="icon__menu">Login</a>
+                    {% if where == 'login' %}
+                        <a href="{% url 'login' %}" class="menu__ativo"><img src="{% static 'assets/ícones/1x/Login.png' %}" class="icon__menu">Login</a>
+                    {% else %}
+                        <a href="{% url 'login' %}"><img src="{% static 'assets/ícones/1x/Login.png' %}" class="icon__menu">Login</a>
+                    {% endif %}
                 {% endif %}
                 
             </nav>
