@@ -29,7 +29,7 @@ def login(request):
             messages.error(request, 'Não foi possível realizar login, tente novamente')
             return redirect('login')
 
-    return render(request, 'usuarios/login.html', {"form": form})
+    return render(request, 'usuarios/login.html', {"form": form, "where":"login"})
 
 def cadastro(request):
     # View para realizar cadastro de novo usuário na aplicação

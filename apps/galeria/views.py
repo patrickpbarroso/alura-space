@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from apps.galeria.models import Fotografia
 from apps.galeria.forms import FotografiaForms
 from django.contrib import messages
+import random
 
 def index(request):
     # View que retorna a página inicial da galeria
@@ -10,7 +11,7 @@ def index(request):
         return redirect('login')
     
     fotografias = Fotografia.objects.order_by('-data_fotografia').filter(publicada=True)
-    return render(request, 'galeria/index.html', {'cards': fotografias})
+    return render(request, 'galeria/index.html', {'cards': fotografias, 'where': 'index'})
 
 def imagem(request, foto_id):
     # View para página de imagem da galeria
@@ -45,7 +46,7 @@ def nova_imagem(request):
             messages.success(request, 'Nova fotografia cadastrada!')
             return redirect('index')
     
-    return render(request, 'galeria/nova_imagem.html', {'form':form})
+    return render(request, 'galeria/nova_imagem.html', {'form':form, 'where': 'nova-imagem'})
 
 def editar_imagem(request, foto_id):
     # view para editar imagem
@@ -76,3 +77,10 @@ def filtro(request, categoria):
         return redirect('login')
     fotografias = Fotografia.objects.order_by("data_fotografia").filter(publicada=True, categoria=categoria)
     return render(request, 'galeria/index.html', {'cards': fotografias})
+
+def surpreenda(request):
+    # View para retornar uma imagem aleatória da galeria em Surpreenda-me
+    ids = Fotografia.objects.values_list('id', flat=True).filter(publicada=True)
+    foto_surpresa_id = random.choice(ids)
+    fotografia = get_object_or_404(Fotografia, pk=foto_surpresa_id)
+    return render(request, 'galeria/imagem.html', {'fotografia': fotografia, 'where':'surpreenda'})
